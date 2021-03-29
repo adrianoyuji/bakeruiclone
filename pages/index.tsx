@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from "../components/Layout";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+  const router = useRouter();
 
-export default IndexPage
+  useEffect(() => {
+    router.push("/home");
+  }, []);
+
+  return <Layout title="Redirecting | Baker">You are beign redirected</Layout>;
+};
+
+export default IndexPage;
