@@ -1,3 +1,5 @@
+import NavigationItem from "./NavigationItem";
+
 export default interface Navigation {
   id: String;
   title: string;
@@ -5,14 +7,7 @@ export default interface Navigation {
   items: NavigationItem[];
 }
 
-interface NavigationItem {
-  name: String;
-  path: string;
-  featured?: boolean;
-  items?: NavigationItem[];
-}
-
 export enum DropdownType {
-  SIMPLE = "SIMPlE",
+  SIMPLE = "SIMPLE",
   WIDE = "WIDE",
 }

@@ -9,8 +9,12 @@ import { VscSearch } from "react-icons/vsc";
 
 import navigationList from "services/navigation";
 
+interface Props {
+  backgroundColor?: string;
+}
+
 interface HeaderStyles {
-  backgroundColor: string;
+  backgroundColor?: string;
 }
 
 interface HeaderMenuStyles {}
@@ -44,9 +48,9 @@ const HeaderMenu = styled.nav<HeaderMenuStyles>`
   height: 100%;
 `;
 
-const HeaderPage = () => {
+const HeaderPage = ({ backgroundColor = "#fff" }: Props) => {
   return (
-    <Header backgroundColor="#fff">
+    <Header backgroundColor={backgroundColor}>
       <LogoContainer>
         <Logo fontColor="white" />
       </LogoContainer>

@@ -8,6 +8,7 @@ type Props = {
   children?: ReactNode;
   title?: string;
   styles?: LayoutStyles;
+  headerBackgroundColor?: string;
 };
 
 interface LayoutStyles {
@@ -30,10 +31,11 @@ const Layout = ({
   children,
   title = "Welcome | Baker",
   styles = {},
+  headerBackgroundColor,
 }: Props) => (
   <LayoutBody {...styles}>
     <MetaTag title={title} />
-    <Header />
+    <Header backgroundColor={headerBackgroundColor} />
     {children}
     <Footer />
   </LayoutBody>
