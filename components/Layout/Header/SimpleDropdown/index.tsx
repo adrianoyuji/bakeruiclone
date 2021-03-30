@@ -36,7 +36,7 @@ const DropdownStyles = styled.ul<DropdownAnimationProps>`
   display: flex;
   flex-direction: column;
   transform-origin: top center;
-  animation: ${({ growDown }) => growDown} 300ms ease-in-out forwards;
+  animation: ${({ growDown }) => growDown} 500ms ease-in-out forwards;
   padding: 22px 0;
   position: absolute;
   top: 74px;
