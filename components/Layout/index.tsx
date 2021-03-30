@@ -19,8 +19,8 @@ interface LayoutStyles {
 }
 
 const LayoutBody = styled.div<LayoutStyles>`
-  height: "100vh";
-  width: "100vw";
+  height: 100vh;
+  width: 100vw;
   padding-left: ${({ paddingLeft }) => paddingLeft || "none"};
   padding-right: ${({ paddingRight }) => paddingRight || "none"};
   padding-top: ${({ paddingTop }) => paddingTop || "none"};

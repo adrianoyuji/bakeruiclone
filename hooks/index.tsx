@@ -1,7 +1,12 @@
 import { MenuProvider } from "hooks/menu";
+import { LayoutProvider } from "hooks/layout";
 
 const AppProvider: React.FC = ({ children }) => {
-  return <MenuProvider>{children}</MenuProvider>;
+  return (
+    <LayoutProvider>
+      <MenuProvider>{children}</MenuProvider>
+    </LayoutProvider>
+  );
 };
 
 export default AppProvider;

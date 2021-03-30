@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import styled, { keyframes, Keyframes } from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useLayout } from "hooks/layout";
 
 interface Props {
   children?: ReactNode;
@@ -87,13 +88,14 @@ const CarouselItem = ({
   currentIndex,
   iconSize = 18,
 }: Props) => {
+  const { windowWidth } = useLayout();
+
   const selectAnimation = (type: string) => {
     switch (type) {
       case "fadeInBottom":
         return fadeInBottom;
       case "fadeInCenter":
         return fadeInCenter;
-
       default:
         return fadeInCenter;
     }
@@ -101,23 +103,27 @@ const CarouselItem = ({
 
   return (
     <Container img_url={img_url} key={currentIndex}>
-      <LeftArrow>
-        <BsChevronLeft
-          onClick={() => prevSlide()}
-          color="white"
-          size={iconSize}
-        />
-      </LeftArrow>
+      {windowWidth > 1024 && (
+        <LeftArrow>
+          <BsChevronLeft
+            onClick={() => prevSlide()}
+            color="white"
+            size={iconSize}
+          />
+        </LeftArrow>
+      )}
       <ChildrenContainer animation={selectAnimation(animation)}>
         {children}
       </ChildrenContainer>
-      <RightArrow>
-        <BsChevronRight
-          onClick={() => nextSlide()}
-          color="white"
-          size={iconSize}
-        />
-      </RightArrow>
+      {windowWidth > 1024 && (
+        <RightArrow>
+          <BsChevronRight
+            onClick={() => nextSlide()}
+            color="white"
+            size={iconSize}
+          />
+        </RightArrow>
+      )}
     </Container>
   );
 };

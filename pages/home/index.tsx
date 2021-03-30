@@ -1,44 +1,50 @@
 import React, { useRef, useState } from "react";
-import Layout from "components/Layout";
-import { Carousel } from "antd";
 import styled from "styled-components";
+import { Carousel } from "antd";
+import { useLayout } from "hooks/layout";
+import Layout from "components/Layout";
 import CarouselItem from "components/CarouselItem";
+import WindowProps from "interfaces/WindowProps";
 
 const Body = styled.div`
-  height: 100vw;
+  height: auto;
   width: 100%;
   background-color: white;
 `;
 
-const CategoryHeader = styled.span`
+const CategoryHeader = styled.span<WindowProps>`
   color: white;
-  font-size: 1.1em;
+  font-size: ${({ windowWidth }) =>
+    windowWidth ? (windowWidth >= 768 ? "1.5vw" : "3.5vw") : "2.75vw"};
   text-align: center;
 `;
-const SubTitle = styled.p`
+const SubTitle = styled.p<WindowProps>`
   color: white;
-  font-size: 1.2em;
+  font-size: ${({ windowWidth }) =>
+    windowWidth ? (windowWidth >= 768 ? "1.5vw" : "4vw") : "1.66vw"};
   text-align: center;
-  width: 60%;
+  width: ${({ windowWidth }) =>
+    windowWidth ? (windowWidth >= 768 ? "66%" : "100%") : "88%"}; ;
 `;
 
-const Title = styled.span`
+const Title = styled.span<WindowProps>`
   color: white;
-  font-size: 7em;
+  font-size: ${({ windowWidth }) =>
+    windowWidth ? (windowWidth >= 768 ? "7vw" : "9vw") : "8.5vw"};
   font-family: "Playfair Display";
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
 `;
 
-const Button = styled.div`
+const Button = styled.div<WindowProps>`
   background-color: white;
   color: #333;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 27px;
   box-sizing: border-box;
   letter-spacing: 2px;
-  padding: 13px 35px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   transition: ease-in-out 0.2s;
   &:hover {
@@ -50,6 +56,7 @@ const Button = styled.div`
 const Home = () => {
   const carouselRef = useRef(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const { windowWidth } = useLayout();
 
   const handleNextSlide = () => {
     //@ts-ignore
@@ -73,7 +80,7 @@ const Home = () => {
         <Carousel
           dotPosition="bottom"
           style={{ height: "80vh", width: "100%" }}
-          autoplay
+          //autoplay
           effect="fade"
           autoplaySpeed={5000}
           ref={carouselRef}
@@ -89,8 +96,8 @@ const Home = () => {
           >
             <img
               src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/home-7-slider-graphic.png"
-              height="33%"
-              width="33%%"
+              height={windowWidth >= 768 ? "33%" : "66%"}
+              width={windowWidth >= 768 ? "33%" : "66%"}
             />
           </CarouselItem>
           <CarouselItem
@@ -101,14 +108,16 @@ const Home = () => {
             currentIndex={currentSlideIndex}
             img_url="https://cdn.pixabay.com/photo/2015/03/26/10/30/breads-691467_960_720.jpg"
           >
-            <CategoryHeader>BREAKING BREAD</CategoryHeader>
-            <Title>Flavorsome Moments</Title>
-            <SubTitle>
+            <CategoryHeader windowWidth={windowWidth}>
+              BREAKING BREAD
+            </CategoryHeader>
+            <Title windowWidth={windowWidth}>Flavorsome Moments</Title>
+            <SubTitle windowWidth={windowWidth}>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae
             </SubTitle>
-            <Button> PURCHASE NOW </Button>
+            <Button windowWidth={windowWidth}> PURCHASE NOW </Button>
           </CarouselItem>
           <CarouselItem
             currentIndex={currentSlideIndex}
@@ -118,9 +127,11 @@ const Home = () => {
             animation="fadeInBottom"
             img_url="https://cdn.pixabay.com/photo/2016/11/29/05/07/breads-1867459_960_720.jpg"
           >
-            <CategoryHeader>BREAKING BREAD</CategoryHeader>
-            <Title>Delightful Alternatives</Title>
-            <SubTitle>
+            <CategoryHeader windowWidth={windowWidth}>
+              BREAKING BREAD
+            </CategoryHeader>
+            <Title windowWidth={windowWidth}>Delightful Alternatives</Title>
+            <SubTitle windowWidth={windowWidth}>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae
