@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Header from "components/Layout/Header";
+import HeaderComponent from "components/Layout/Header";
 import Footer from "components/Layout/Footer";
 import MetaTag from "components/Layout/MetaTag";
 import styled from "styled-components";
@@ -25,6 +25,7 @@ const LayoutBody = styled.div<LayoutStyles>`
   padding-right: ${({ paddingRight }) => paddingRight || "none"};
   padding-top: ${({ paddingTop }) => paddingTop || "none"};
   padding-bottom: ${({ paddingBottom }) => paddingBottom || "none"};
+  overflow-x: hidden;
 `;
 
 const Layout = ({
@@ -35,7 +36,7 @@ const Layout = ({
 }: Props) => (
   <LayoutBody {...styles}>
     <MetaTag title={title} />
-    <Header backgroundColor={headerBackgroundColor} />
+    <HeaderComponent backgroundColor={headerBackgroundColor} />
     {children}
     <Footer />
   </LayoutBody>

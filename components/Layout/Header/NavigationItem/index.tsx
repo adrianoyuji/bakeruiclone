@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BiChevronDown } from "react-icons/bi";
 import Navigation from "interfaces/Navigation";
 import SimpleDropdown from "../SimpleDropdown";
+import WideDropdown from "../WideDropdown";
 
 interface Props {
   item: Navigation;
@@ -35,7 +36,7 @@ const NavigationItem = ({ item }: Props) => {
   };
 
   const renderWideDropdown = (navItem: Navigation) => {
-    return navItem.title;
+    return <WideDropdown navList={navItem.items} />;
   };
 
   const renderDropdown = (navItem: Navigation) => {

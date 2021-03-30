@@ -20,10 +20,10 @@ interface HeaderStyles {
 interface HeaderMenuStyles {}
 
 const Header = styled.header<HeaderStyles>`
-  background-color: ${({ backgroundColor }) => backgroundColor || "none"};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   width: 100%;
   height: 90px;
-  z-index: 10;
+  z-index: 9999;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +48,7 @@ const HeaderMenu = styled.nav<HeaderMenuStyles>`
   height: 100%;
 `;
 
-const HeaderPage = ({ backgroundColor = "#fff" }: Props) => {
+const HeaderComponent = ({ backgroundColor = "#fff" }: Props) => {
   return (
     <Header backgroundColor={backgroundColor}>
       <LogoContainer>
@@ -70,4 +70,4 @@ const HeaderPage = ({ backgroundColor = "#fff" }: Props) => {
   );
 };
 
-export default HeaderPage;
+export default HeaderComponent;

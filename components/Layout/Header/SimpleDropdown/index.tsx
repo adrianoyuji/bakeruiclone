@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes, Keyframes } from "styled-components";
 import NavigationItem from "interfaces/Navigation/NavigationItem";
 import { AiFillStar } from "react-icons/ai";
 import { BiChevronRight } from "react-icons/bi";
@@ -17,9 +17,26 @@ interface SideDropdownProps {
   position: number;
 }
 
-const DropdownStyles = styled.ul`
+interface DropdownAnimationProps {
+  growDown: Keyframes;
+}
+
+const growDown = keyframes`
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+`;
+const DropdownStyles = styled.ul<DropdownAnimationProps>`
   display: flex;
   flex-direction: column;
+  transform-origin: top center;
+  animation: ${({ growDown }) => growDown} 300ms ease-in-out forwards;
   padding: 22px 0;
   position: absolute;
   top: 74px;
@@ -46,7 +63,7 @@ const SideDropdownStyles = styled.ul<SideDropdownProps>`
 `;
 
 const DropdownItem = styled.div`
-  padding: 7px 30px;
+  padding: 1px 30px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -67,7 +84,7 @@ const SimpleDropdown = ({ navList }: Props) => {
   const [hoveredItems, setHoveredItems] = useState<SideDropdown | null>(null);
 
   return (
-    <DropdownStyles>
+    <DropdownStyles growDown={growDown}>
       {navList.map((item, index) => (
         <DropdownItem key={index}>
           <DropdownText
