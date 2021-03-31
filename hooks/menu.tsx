@@ -2,7 +2,10 @@ import Category from "interfaces/Category";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import api from "services/api";
 
-interface MenuContextData {}
+interface MenuContextData {
+  menu: Category[];
+  loading: Boolean;
+}
 
 const MenuContext = createContext<MenuContextData>({} as MenuContextData);
 
