@@ -30,6 +30,7 @@ const ProductName = styled.span`
   color: #333;
   text-align: center;
 `;
+
 const ProductDescription = styled.p`
   font-size: 1rem;
   color: #999;

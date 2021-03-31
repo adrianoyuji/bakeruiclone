@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CarouselSlider from "components/CarouselSlider";
 import Layout from "components/Layout";
 import ProductDisplay from "components/ProductDisplay";
+import OwnerDescription from "components/OwnerDescription";
 
 const Body = styled.div`
   height: auto;
@@ -19,6 +20,7 @@ const Home = () => {
       <Body>
         <CarouselSlider />
         <ProductDisplay />
+        <OwnerDescription />
       </Body>
     </Layout>
   );
