@@ -5,6 +5,7 @@ import Layout from "components/Layout";
 import ProductDisplay from "components/ProductDisplay";
 import OwnerDescription from "components/OwnerDescription";
 import TextSection from "components/TextSection";
+import ImageGallery from "components/ImageGallery";
 
 const Body = styled.div`
   height: auto;
@@ -26,6 +27,7 @@ const Home = () => {
           title="Unspeakably Good"
           paragraph="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat."
         />
+        <ImageGallery />
         <TextSection
           title="Delivering to your door"
           paragraph="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat."
