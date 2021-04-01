@@ -66,7 +66,7 @@ const CarouselSlider = () => {
   return (
     <Carousel
       dotPosition="bottom"
-      style={{ height: "80vh", width: "100%" }}
+      style={{ height: "86vh", width: "100%" }}
       autoplay
       effect="fade"
       autoplaySpeed={5000}

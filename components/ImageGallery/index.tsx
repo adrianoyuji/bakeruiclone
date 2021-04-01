@@ -11,7 +11,6 @@ const ImageGalleryContainer = styled.section<WindowProps>`
   flex-direction: ${({ windowWidth }) =>
     windowWidth ? (windowWidth < 768 ? "column" : "row") : "column"};
   flex: 1;
-  padding: 6vh 0px;
 `;
 
 const GalleryItems = [

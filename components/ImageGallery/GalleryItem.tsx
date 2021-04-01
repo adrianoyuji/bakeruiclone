@@ -93,9 +93,8 @@ const GalleryButton = styled.div`
   cursor: pointer;
   transition: ease-in-out 0.2s;
   &:hover {
-    border: none;
+    border-color: #e1be64;
     background-color: #e1be64;
-    color: #333;
   }
 `;
 

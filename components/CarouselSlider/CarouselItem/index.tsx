@@ -22,11 +22,11 @@ interface CarouselItemProps {
 }
 
 const fadeInBottom = keyframes`
-from {
-        opacity: 0;
-        transform: translateY(20%);
-    }
-    to { opacity: 1 }
+  from {
+          opacity: 0;
+          transform: translateY(20%);
+      }
+      to { opacity: 1 }
 `;
 const fadeInCenter = keyframes`
   from {
@@ -37,7 +37,7 @@ const fadeInCenter = keyframes`
 `;
 
 const Container = styled.div<CarouselItemProps>`
-  height: 80vh;
+  height: 86vh;
   width: 100%;
   display: flex;
   flex-direction: row;
