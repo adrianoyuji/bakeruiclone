@@ -2,7 +2,9 @@ import React, { ReactNode } from "react";
 import HeaderComponent from "components/Layout/Header";
 import Footer from "components/Layout/Footer";
 import MetaTag from "components/Layout/MetaTag";
+import ScrollToTopButton from "components/Layout/ScrollToTopButton";
 import styled from "styled-components";
+import { useLayout } from "hooks/layout";
 
 type Props = {
   children?: ReactNode;
@@ -33,13 +35,18 @@ const Layout = ({
   title = "Welcome | Baker",
   styles = {},
   headerBackgroundColor,
-}: Props) => (
-  <LayoutBody {...styles}>
-    <MetaTag title={title} />
-    <HeaderComponent backgroundColor={headerBackgroundColor} />
-    {children}
-    <Footer />
-  </LayoutBody>
-);
+}: Props) => {
+  const { screenRef } = useLayout();
+
+  return (
+    <LayoutBody {...styles} ref={screenRef}>
+      <MetaTag title={title} />
+      <HeaderComponent backgroundColor={headerBackgroundColor} />
+      {children}
+      <Footer />
+      <ScrollToTopButton />
+    </LayoutBody>
+  );
+};
 
 export default Layout;

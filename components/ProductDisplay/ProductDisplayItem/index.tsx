@@ -7,8 +7,8 @@ interface Props {
 }
 
 const ProductDisplayContainer = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 75%;
+  width: 75%;
   padding: 1rem;
   display: flex;
   flex-direction: column;

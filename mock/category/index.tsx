@@ -47,18 +47,18 @@ const categories: Category[] = [
     category_name: "Sandwiches",
     items: [
       {
-        id: "d7b44b76-ec21-4daf-a585-1231e0e0",
-        img_url:
-          "https://cdn.pixabay.com/photo/2016/03/05/22/55/barbeque-1239407_960_720.jpg",
-        name: "Burger",
-        price: 1000,
-      },
-      {
         id: "d7b12336-ec21-4daf-a585-1231e0e0",
         img_url:
           "https://cdn.pixabay.com/photo/2015/07/01/07/06/burger-827309_960_720.jpg",
         name: "Chicken Burger",
         price: 900,
+      },
+      {
+        id: "d7b44b76-ec21-4daf-a585-1231e0e0",
+        img_url:
+          "https://cdn.pixabay.com/photo/2016/03/05/22/55/barbeque-1239407_960_720.jpg",
+        name: "Burger",
+        price: 1000,
       },
       {
         id: "12345-ec21-4daf-a585-1231e0e0",

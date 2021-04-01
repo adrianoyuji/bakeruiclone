@@ -18,6 +18,7 @@ const DisplayContainer = styled.section<WindowProps>`
         ? "50% 50%"
         : "25% 25% 25% 25%"
       : "100%"};
+  justify-items: center;
 `;
 
 const ProductDisplay = () => {
