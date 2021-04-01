@@ -78,10 +78,16 @@ const OwnerDescription = () => {
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur.
         </SectionParagraph>
-        <Signature src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/h6-img-1.png" />
+        <Signature
+          alt="signature"
+          src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/h6-img-1.png"
+        />
       </FirstSection>
       <SecondSection>
-        <ChefPicture src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/home-7-image-1.png" />
+        <ChefPicture
+          alt="chef-picure"
+          src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/home-7-image-1.png"
+        />
       </SecondSection>
     </OwnerDescriptionContainer>
   );

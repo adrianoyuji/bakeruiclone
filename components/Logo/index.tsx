@@ -12,6 +12,7 @@ const blackLogo =
 const Logo = ({ fontColor = "white" }: Props) => {
   return (
     <img
+      alt="baked-logo"
       src={fontColor === "white" ? whiteLogo : blackLogo}
       height="60px"
       width="auto"

@@ -82,6 +82,7 @@ const CarouselSlider = () => {
         img_url="https://cdn.pixabay.com/photo/2015/04/20/13/22/hands-731265_960_720.jpg"
       >
         <img
+          alt="baked-with-love"
           src="https://baker.qodeinteractive.com/wp-content/uploads/2017/02/home-7-slider-graphic.png"
           height={windowWidth >= 768 ? "33%" : "66%"}
           width={windowWidth >= 768 ? "33%" : "66%"}

@@ -42,7 +42,7 @@ const ProductDescription = styled.p`
 const ProductDisplayItem = ({ product }: Props) => {
   return (
     <ProductDisplayContainer>
-      <ProductImg src={product.img_url} />
+      <ProductImg alt="product-image" src={product.img_url} />
       <ProductName>{product.name}</ProductName>
       <ProductDescription>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed tincidunt
