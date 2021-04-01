@@ -18,7 +18,11 @@ const Home = () => {
   return (
     <Layout
       title="Home | Baker"
-      styles={{ paddingLeft: "2.7%", paddingRight: "2.7%" }}
+      styles={{
+        paddingLeft: "2.7%",
+        paddingRight: "2.7%",
+        paddingBottom: "2.7%",
+      }}
     >
       <Body>
         <CarouselSlider />

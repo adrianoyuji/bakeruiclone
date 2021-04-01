@@ -52,7 +52,7 @@ const HeaderComponent = ({ backgroundColor = "#fff" }: Props) => {
   return (
     <Header backgroundColor={backgroundColor}>
       <LogoContainer>
-        <Logo fontColor="white" />
+        <Logo fontColor="black" />
       </LogoContainer>
 
       <HeaderMenu>
