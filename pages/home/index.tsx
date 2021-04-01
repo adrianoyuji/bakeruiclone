@@ -6,6 +6,7 @@ import ProductDisplay from "components/ProductDisplay";
 import OwnerDescription from "components/OwnerDescription";
 import TextSection from "components/TextSection";
 import ImageGallery from "components/ImageGallery";
+import CatalogShowcase from "components/CatalogShowcase";
 
 const Body = styled.div`
   height: auto;
@@ -32,6 +33,7 @@ const Home = () => {
           title="Delivering to your door"
           paragraph="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat."
         />
+        <CatalogShowcase />
       </Body>
     </Layout>
   );

@@ -37,7 +37,7 @@ const categories: Category[] = [
         id: "d7b44b76-1221-4daf-afnjk5-3346218231230e0",
         img_url:
           "https://cdn.pixabay.com/photo/2015/06/19/16/00/strawberries-815057_960_720.jpg",
-        name: "Bread and Strawberry Jam",
+        name: "Bread and Jam",
         price: 400,
       },
     ],
