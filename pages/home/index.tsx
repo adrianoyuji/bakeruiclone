@@ -4,6 +4,7 @@ import CarouselSlider from "components/CarouselSlider";
 import Layout from "components/Layout";
 import ProductDisplay from "components/ProductDisplay";
 import OwnerDescription from "components/OwnerDescription";
+import TextSection from "components/TextSection";
 
 const Body = styled.div`
   height: auto;
@@ -21,6 +22,14 @@ const Home = () => {
         <CarouselSlider />
         <ProductDisplay />
         <OwnerDescription />
+        <TextSection
+          title="Unspeakably Good"
+          paragraph="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat."
+        />
+        <TextSection
+          title="Delivering to your door"
+          paragraph="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy tincidunt ut laoreet dolore magna aliquam erat volutpat."
+        />
       </Body>
     </Layout>
   );
