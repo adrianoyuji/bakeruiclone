@@ -11,6 +11,7 @@ type Props = {
   title?: string;
   styles?: LayoutStyles;
   headerBackgroundColor?: string;
+  logoColor?: "white" | "black" | "#fff" | "#000";
 };
 
 interface LayoutStyles {
@@ -35,12 +36,16 @@ const Layout = ({
   title = "Welcome | Baker",
   styles = {},
   headerBackgroundColor,
+  logoColor = "black",
 }: Props) => {
   const { screenRef, showFixedHeader } = useLayout();
 
   return (
     <>
-      <HeaderComponent backgroundColor={headerBackgroundColor} />
+      <HeaderComponent
+        backgroundColor={headerBackgroundColor}
+        logoColor={logoColor}
+      />
       {showFixedHeader && (
         <HeaderComponent backgroundColor={headerBackgroundColor} fixed />
       )}

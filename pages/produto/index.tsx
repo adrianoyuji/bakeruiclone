@@ -11,7 +11,7 @@ const Body = styled.div`
 
 const Home = () => {
   return (
-    <Layout title="Produto | Baker">
+    <Layout title="Produto | Baker" logoColor="black">
       <Body>
         <Menu />
       </Body>

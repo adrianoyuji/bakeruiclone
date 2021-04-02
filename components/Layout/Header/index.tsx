@@ -14,6 +14,7 @@ import { useLayout } from "hooks/layout";
 interface Props {
   backgroundColor?: string;
   fixed?: boolean;
+  logoColor?: "white" | "black" | "#fff" | "#000";
 }
 
 interface HeaderStyles {
@@ -66,13 +67,14 @@ const MiddleElement = styled.nav<HeaderMenuStyles>`
 const HeaderComponent = ({
   backgroundColor = "#fff",
   fixed = false,
+  logoColor = "white",
 }: Props) => {
   const { windowWidth, isMobileMenuOpen, toggleMobileMenu } = useLayout();
 
   return windowWidth > 1024 ? (
     <Header backgroundColor={backgroundColor} fixed={fixed}>
       <LeftElement>
-        <Logo fontColor="black" />
+        <Logo fontColor={logoColor} />
       </LeftElement>
 
       <MiddleElement fixed={fixed}>

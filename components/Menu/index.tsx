@@ -13,11 +13,13 @@ const MenuContainer = styled.div<WindowProps>`
   display: grid;
   grid-template-columns: ${({ windowWidth }) =>
     windowWidth
-      ? windowWidth < 768
-        ? "100%"
-        : windowWidth < 990
+      ? windowWidth > 1200
+        ? "25% 25% 25% 25%"
+        : windowWidth > 1024
+        ? "33% 33% 33%"
+        : windowWidth > 660
         ? "50% 50%"
-        : "25% 25% 25% 25%"
+        : "100%"
       : "100%"};
   justify-items: center;
 `;
