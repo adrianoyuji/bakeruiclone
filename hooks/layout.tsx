@@ -11,6 +11,9 @@ interface LayoutContextData {
   windowHeight: number;
   screenRef: any;
   scrollTop(): void;
+  showFixedHeader: boolean;
+  isMobileMenuOpen: boolean;
+  toggleMobileMenu(): void;
 }
 
 const LayoutContext = createContext<LayoutContextData>({} as LayoutContextData);
@@ -18,16 +21,35 @@ const LayoutContext = createContext<LayoutContextData>({} as LayoutContextData);
 export const LayoutProvider: React.FC = ({ children }) => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [windowHeight, setWindowHeight] = useState<number>(0);
+  const [showFixedHeader, setShowFixedHeader] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const screenRef = useRef<null | HTMLElement>(null);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useLayoutEffect(() => {
     function updateSize() {
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
     }
+
+    function udpateScrollPosition() {
+      if (window.scrollY > 60) {
+        setShowFixedHeader(true);
+      } else {
+        setShowFixedHeader(false);
+      }
+    }
+
+    window.addEventListener("scroll", udpateScrollPosition);
     window.addEventListener("resize", updateSize);
+
     updateSize();
-    return () => window.removeEventListener("resize", updateSize);
+    udpateScrollPosition();
+    return () => {
+      window.removeEventListener("resize", updateSize);
+      window.removeEventListener("scroll", udpateScrollPosition);
+    };
   }, []);
 
   const scrollTop = () => {
@@ -37,7 +59,15 @@ export const LayoutProvider: React.FC = ({ children }) => {
 
   return (
     <LayoutContext.Provider
-      value={{ windowWidth, windowHeight, screenRef, scrollTop }}
+      value={{
+        windowWidth,
+        windowHeight,
+        screenRef,
+        scrollTop,
+        showFixedHeader,
+        toggleMobileMenu,
+        isMobileMenuOpen,
+      }}
     >
       {children}
     </LayoutContext.Provider>

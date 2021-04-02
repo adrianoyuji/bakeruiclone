@@ -21,8 +21,8 @@ interface LayoutStyles {
 }
 
 const LayoutBody = styled.div<LayoutStyles>`
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  width: 100%;
   padding-left: ${({ paddingLeft }) => paddingLeft || "none"};
   padding-right: ${({ paddingRight }) => paddingRight || "none"};
   padding-top: ${({ paddingTop }) => paddingTop || "none"};
@@ -36,12 +36,15 @@ const Layout = ({
   styles = {},
   headerBackgroundColor,
 }: Props) => {
-  const { screenRef } = useLayout();
+  const { screenRef, showFixedHeader } = useLayout();
 
   return (
     <LayoutBody {...styles} ref={screenRef}>
       <MetaTag title={title} />
       <HeaderComponent backgroundColor={headerBackgroundColor} />
+      {showFixedHeader && (
+        <HeaderComponent backgroundColor={headerBackgroundColor} fixed />
+      )}
       {children}
       <Footer />
       <ScrollToTopButton />
