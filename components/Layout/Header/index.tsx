@@ -26,6 +26,7 @@ interface HeaderMenuStyles {
 }
 
 const Header = styled.header<HeaderStyles>`
+  padding: 0px 2.7%;
   background-color: ${({ backgroundColor }) => backgroundColor};
   width: 100%;
   height: ${({ fixed }) => (fixed ? "80px" : "90px")};

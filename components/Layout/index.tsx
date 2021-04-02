@@ -39,16 +39,18 @@ const Layout = ({
   const { screenRef, showFixedHeader } = useLayout();
 
   return (
-    <LayoutBody {...styles} ref={screenRef}>
-      <MetaTag title={title} />
+    <>
       <HeaderComponent backgroundColor={headerBackgroundColor} />
       {showFixedHeader && (
         <HeaderComponent backgroundColor={headerBackgroundColor} fixed />
       )}
-      {children}
-      <Footer />
-      <ScrollToTopButton />
-    </LayoutBody>
+      <LayoutBody {...styles} ref={screenRef}>
+        <MetaTag title={title} />
+        {children}
+        <Footer />
+        <ScrollToTopButton />
+      </LayoutBody>
+    </>
   );
 };
 
