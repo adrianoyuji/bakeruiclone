@@ -7,6 +7,7 @@ import WideDropdown from "../WideDropdown";
 
 interface Props {
   item: Navigation;
+  color?: string;
 }
 
 const NavigationBox = styled.li`
@@ -21,14 +22,14 @@ const NavigationBox = styled.li`
 `;
 
 const NavigationTitle = styled.span`
-  color: #333;
+  color: ${({ color }) => color};
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   padding-right: 0.1em;
 `;
 
-const NavigationItem = ({ item }: Props) => {
+const NavigationItem = ({ item, color }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
   const renderSimpleDropdown = (navItem: Navigation) => {
@@ -55,8 +56,8 @@ const NavigationItem = ({ item }: Props) => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <NavigationTitle>{item.title}</NavigationTitle>
-      <BiChevronDown size={12} />
+      <NavigationTitle color={color}>{item.title}</NavigationTitle>
+      <BiChevronDown color={color} size={12} />
       {isHovering && renderDropdown(item)}
     </NavigationBox>
   );

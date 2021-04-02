@@ -12,7 +12,14 @@ type Props = {
   styles?: LayoutStyles;
   headerBackgroundColor?: string;
   logoColor?: "white" | "black" | "#fff" | "#000";
+  headerImageBackgroundContainer?: HeaderImagebackgroundProps;
 };
+
+interface HeaderImagebackgroundProps {
+  image_url: string;
+  title: string;
+  subtitle: string;
+}
 
 interface LayoutStyles {
   paddingLeft?: string;
@@ -37,6 +44,7 @@ const Layout = ({
   styles = {},
   headerBackgroundColor,
   logoColor = "black",
+  headerImageBackgroundContainer,
 }: Props) => {
   const { screenRef, showFixedHeader } = useLayout();
 
@@ -45,10 +53,9 @@ const Layout = ({
       <HeaderComponent
         backgroundColor={headerBackgroundColor}
         logoColor={logoColor}
+        headerImageBackgroundContainer={headerImageBackgroundContainer}
       />
-      {showFixedHeader && (
-        <HeaderComponent backgroundColor={headerBackgroundColor} fixed />
-      )}
+      {showFixedHeader && <HeaderComponent fixed />}
       <LayoutBody {...styles} ref={screenRef}>
         <MetaTag title={title} />
         {children}

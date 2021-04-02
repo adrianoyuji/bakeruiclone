@@ -7,7 +7,7 @@ import Logo from "components/Logo";
 import MobileDropdown from "./MobileDropdown";
 import { AiOutlineShopping, AiOutlineMenu } from "react-icons/ai";
 import { VscSearch } from "react-icons/vsc";
-
+import HeaderMessage from "./HeaderMessage";
 import navigationList from "services/navigation";
 import { useLayout } from "hooks/layout";
 
@@ -15,21 +15,43 @@ interface Props {
   backgroundColor?: string;
   fixed?: boolean;
   logoColor?: "white" | "black" | "#fff" | "#000";
+  headerImageBackgroundContainer?: HeaderImagebackgroundProps;
+}
+
+interface HeaderImagebackgroundProps {
+  image_url: string;
+  title: string;
+  subtitle: string;
 }
 
 interface HeaderStyles {
   fixed?: boolean;
   backgroundColor?: string;
+  backgroundImage?: string;
+  windowWidth?: number;
 }
 
 interface HeaderMenuStyles {
   fixed?: boolean;
 }
 
-const Header = styled.header<HeaderStyles>`
+const HeaderBackground = styled.div<HeaderStyles>`
+  background-color: ${({ backgroundColor }) => backgroundColor || "none"};
   padding: 0px 2.7%;
-  background-color: ${({ backgroundColor }) => backgroundColor};
   width: 100%;
+  height: auto;
+  background-image: ${({ backgroundImage }) =>
+    `url(${backgroundImage})` || "none"};
+  background-position: center;
+  background-size: cover;
+`;
+
+const Header = styled.header<HeaderStyles>`
+  width: 100%;
+  padding: ${({ windowWidth }) =>
+    windowWidth ? (windowWidth < 1024 ? "0px 2.7%" : "none") : "none"};
+  background-color: ${({ backgroundColor, fixed }) =>
+    fixed ? backgroundColor : "none"};
   height: ${({ fixed }) => (fixed ? "80px" : "90px")};
   z-index: 9998;
   display: flex;
@@ -67,31 +89,56 @@ const MiddleElement = styled.nav<HeaderMenuStyles>`
 const HeaderComponent = ({
   backgroundColor = "#fff",
   fixed = false,
-  logoColor = "white",
+  logoColor = "black",
+  headerImageBackgroundContainer,
 }: Props) => {
   const { windowWidth, isMobileMenuOpen, toggleMobileMenu } = useLayout();
 
   return windowWidth > 1024 ? (
-    <Header backgroundColor={backgroundColor} fixed={fixed}>
-      <LeftElement>
-        <Logo fontColor={logoColor} />
-      </LeftElement>
+    <HeaderBackground
+      backgroundColor={backgroundColor}
+      backgroundImage={headerImageBackgroundContainer?.image_url}
+    >
+      <Header
+        backgroundColor={backgroundColor}
+        fixed={fixed}
+        windowWidth={windowWidth}
+      >
+        <LeftElement>
+          <Logo fontColor={logoColor} />
+        </LeftElement>
 
-      <MiddleElement fixed={fixed}>
-        {navigationList.map((item, index) => (
-          <NavigationItem item={item} key={index} />
-        ))}
-      </MiddleElement>
+        <MiddleElement fixed={fixed}>
+          {navigationList.map((item, index) => (
+            <NavigationItem item={item} key={index} color={logoColor} />
+          ))}
+        </MiddleElement>
 
-      <RightElement>
-        <HeaderIcon Icon={VscSearch} />
-        <HeaderIcon hasBadge badgeValue={0} Icon={AiOutlineShopping} />
-        <HeaderIcon Icon={AiOutlineMenu} />
-      </RightElement>
-    </Header>
+        <RightElement>
+          <HeaderIcon Icon={VscSearch} color={logoColor} />
+          <HeaderIcon
+            hasBadge
+            badgeValue={0}
+            Icon={AiOutlineShopping}
+            color={logoColor}
+          />
+          <HeaderIcon Icon={AiOutlineMenu} color={logoColor} />
+        </RightElement>
+      </Header>
+      {headerImageBackgroundContainer && (
+        <HeaderMessage
+          title={headerImageBackgroundContainer.title}
+          subtitle={headerImageBackgroundContainer.subtitle}
+        />
+      )}
+    </HeaderBackground>
   ) : (
     <>
-      <Header backgroundColor={backgroundColor} fixed={fixed}>
+      <Header
+        backgroundColor={backgroundColor}
+        fixed={fixed}
+        windowWidth={windowWidth}
+      >
         <LeftElement onClick={toggleMobileMenu}>
           <HeaderIcon Icon={AiOutlineMenu} />
         </LeftElement>
@@ -102,6 +149,13 @@ const HeaderComponent = ({
 
         <RightElement></RightElement>
       </Header>
+      {headerImageBackgroundContainer && (
+        <HeaderMessage
+          title={headerImageBackgroundContainer.title}
+          subtitle={headerImageBackgroundContainer.subtitle}
+          img_url={headerImageBackgroundContainer.image_url}
+        />
+      )}
       {fixed || (isMobileMenuOpen && <MobileDropdown />)}
     </>
   );
