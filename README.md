@@ -9,11 +9,11 @@ O objetivo deste proejto foi desenvolver uma cópia da interface das seguintes p
 [Página Original 1](https://baker.qodeinteractive.com/canape/])  
 [Página Original 2](https://baker.qodeinteractive.com/portfolio-standard/gallery-four-columns/)
 
-## Acessando versão de demonstraçã
+## Acessando versão de demonstração
 
 Você pode acessar uma versão de demosntração [clicando aqui!](https://bakeruiclone.vercel.app/)
 
-## Configurando ambiente de testes
+## Configurando ambiente de desenvolvimento
 
 Para executar este projeto em seu ambiente, certifique que possui [node.js e npm](https://nodejs.org/en/)/[yarn](https://yarnpkg.com/) e [GIT](https://git-scm.com/) instalado em seu sistema.
 
