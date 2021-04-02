@@ -9,11 +9,11 @@ const MenuContainer = styled.div<WindowProps>`
   height: auto;
   width: 100%;
   padding: ${({ windowWidth }) =>
-    windowWidth ? (windowWidth < 768 ? " 0px 1%" : "0px 7.5%") : "0px 7.5%%"};
+    windowWidth ? (windowWidth < 768 ? " 5% 1%" : "5% 7.5%") : "5% 7.5%%"};
   display: grid;
   grid-template-columns: ${({ windowWidth }) =>
     windowWidth
-      ? windowWidth > 1200
+      ? windowWidth > 1500
         ? "25% 25% 25% 25%"
         : windowWidth > 1024
         ? "33% 33% 33%"

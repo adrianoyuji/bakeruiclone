@@ -20,6 +20,7 @@ const Home = () => {
         title: "Gallery Four Columns",
         subtitle: "Experienced and Friendly",
       }}
+      attachFooter
     >
       <Body>
         <Menu />

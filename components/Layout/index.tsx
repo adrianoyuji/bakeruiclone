@@ -13,6 +13,7 @@ type Props = {
   headerBackgroundColor?: string;
   logoColor?: "white" | "black" | "#fff" | "#000";
   headerImageBackgroundContainer?: HeaderImagebackgroundProps;
+  attachFooter?: boolean;
 };
 
 interface HeaderImagebackgroundProps {
@@ -45,6 +46,7 @@ const Layout = ({
   headerBackgroundColor,
   logoColor = "black",
   headerImageBackgroundContainer,
+  attachFooter = false,
 }: Props) => {
   const { screenRef, showFixedHeader } = useLayout();
 
@@ -59,7 +61,7 @@ const Layout = ({
       <LayoutBody {...styles} ref={screenRef}>
         <MetaTag title={title} />
         {children}
-        <Footer />
+        <Footer attachFooter={attachFooter} />
         <ScrollToTopButton />
       </LayoutBody>
     </>

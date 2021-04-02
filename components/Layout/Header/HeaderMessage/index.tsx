@@ -18,8 +18,7 @@ const MessageContainer = styled.div<ContainerProps>`
   flex-direction: column;
   width: 100%;
   height: auto;
-  padding: 5% 0% 5% 0%;
-  margin-bottom: 5%;
+  padding: 5% 0px;
   background-image: ${({ backgroundImage }) =>
     `url(${backgroundImage})` || "none"};
   background-position: center;
