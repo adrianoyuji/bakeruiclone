@@ -1,41 +1,72 @@
-# TypeScript Next.js example
+# Projeto clone de interface Baker
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+Este projeto foi desenvolvido utilizando Next.js e TypeScript!
 
-## Deploy your own
+## Objetivo
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+O objetivo deste proejto foi desenvolver uma cópia da interface das seguintes páginas:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+[Página Original 1](https://baker.qodeinteractive.com/canape/])  
+[Página Original 2](https://baker.qodeinteractive.com/portfolio-standard/gallery-four-columns/)
 
-## How to use it?
+## Acessando versão de demonstraçã
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Você pode acessar uma versão de demosntração [clicando aqui!](https://bakeruiclone.vercel.app/)
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+## Configurando ambiente de testes
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Para executar este projeto em seu ambiente, certifique que possui [node.js e npm](https://nodejs.org/en/)/[yarn](https://yarnpkg.com/) e [GIT](https://git-scm.com/) instalado em seu sistema.
 
-## Notes
+Depois, em um terminal git efetue um clone deste repositório
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+````bash
+git clone https://github.com/adrianoyuji/bakeruiclone.git
+````
+depois, entre na pasta do projeto
 
-```
-npm install --save-dev typescript
-```
+````bash
+cd bakeruiclone
+````
+agora, instale as depencias do projeto
+###### Using NPM
+````bash
+npm install
+````
+###### Using Yarn
+````bash
+yarn install
+````
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+crie um arquivo ".env" na raiz do projeto, e insira a constante API_URL e atribua "localhost:3000". 
+````bash
+API_URL=localhost:3000
+````
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+por fim, você pode executar o ambiente de desenvolvimento
+###### Using NPM
+````bash
+npm run dev
+````
+###### Using Yarn
+````bash
+yarn dev
+````
+## Páginas
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+o sistema contém duas páginas
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+/home e /produto
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+ao entrar pela url sem nenhum parametro, você sera automaticamente redirecionado para /home, para acessar a página produto, deve ser inserido /produto no fim da url.
+
+###### Exemplos
+
+localhost:3000/home  
+localhost:3000/produto  
+[https://bakeruiclone.vercel.app/home](https://bakeruiclone.vercel.app/home)  
+[https://bakeruiclone.vercel.app/produto](https://bakeruiclone.vercel.app/produto)
+
+
+# Contato
+Se quiser entrar em contato comigo, você pode enviar um email para adrianoyuji@gmail.com ou me mandar uma mensagem pelo LinkedIn [clicando aqui](https://www.linkedin.com/in/adriano-yuji-sato-de-vasconcelos-034b09191/).
+### Obrigado!
