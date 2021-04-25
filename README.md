@@ -6,7 +6,7 @@ Este projeto foi desenvolvido utilizando Next.js e TypeScript!
 
 O objetivo deste proejto foi desenvolver uma cópia da interface das seguintes páginas:
 
-[Página Original 1](https://baker.qodeinteractive.com/canape/])  
+[Página Original 1](https://baker.qodeinteractive.com/canape/)  
 [Página Original 2](https://baker.qodeinteractive.com/portfolio-standard/gallery-four-columns/)
 
 ## Acessando versão de demonstração
